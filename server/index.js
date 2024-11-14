@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: process.env.ORIGIN }));
 app.use(bodyParser.json());
 // Configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
