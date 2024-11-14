@@ -21,7 +21,7 @@ export default function ContactMe() {
         return;
       }
     try {
-      const response = await fetch("http://localhost:5000/sendemail", {
+      const response = await fetch("https://muhammad-sami-portfolio.vercel.app/sendemail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

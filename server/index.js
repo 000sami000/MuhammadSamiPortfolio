@@ -16,7 +16,9 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASSWORD, // Your email password or app password if using 2FA
   },
 });
-
+app.get("/", (req, res) => {
+  res.send("ok app is running");
+});
 const sendEmail=async(mailOptions)=>{
   console.log(process.env.GMAIL_USERNAME,process.env.GMAIL_PASSWORD)
   transporter.sendMail(mailOptions, (error, info) => {
