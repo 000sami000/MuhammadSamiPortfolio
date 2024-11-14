@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: process.env.ORIGIN }));
+app.use(cors());
 app.use(bodyParser.json());
 // Configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -31,7 +31,7 @@ const sendEmail=async(mailOptions)=>{
   };
 app.post('/sendemail', (req, res) => {
   const { firstName, lastName, email, phoneNumber,  message } = req.body;
-  // console.log(req.body)
+  console.log(req.body)
   
   const mailOptions = {
     from: process.env.EMAIL,
@@ -48,7 +48,7 @@ app.post('/sendemail', (req, res) => {
   try{
     sendEmail(mailOptions)
     res.status(200).json({message:"Your Data send Successfully"})
-  }catch(err){
+  }catch(err){console.log(err)
     res.status(400).json({message:"Error while sending message"})
   }
 });

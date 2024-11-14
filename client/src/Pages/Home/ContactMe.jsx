@@ -33,6 +33,7 @@ export default function ContactMe() {
       if (response.ok) {
         alert(result.message);
       } else {
+        console.log(response,"iouu")
         alert(result.message || "Something went wrong");
       }
     } catch (error) {
